@@ -1075,8 +1075,8 @@ onSnapshot(q, (snapshot) => {
   container.innerHTML = half + half;
 
   /* Same scroll speed no matter how many wishes: pixels per second.
-     30 is about 65% faster than before. Raise it to go faster. */
-  const speed = 30;
+     45 is 50% faster than the previous 30. Raise it to go faster. */
+  const speed = 45;
   container.style.animationDuration = (cardW * count * repeats / speed) + "s";
 });
 
