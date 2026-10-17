@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+<meta property="og:title" content="Usha ❤️ Manjunath Wedding Invitation">
+<meta property="og:description" content="Join us to celebrate our special day">
+<meta property="og:image" content="https://yourdomain.com/couple.jpg">
+<meta property="og:url" content="https://yourdomain.com">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- UPDATED FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Circle container */
+.ganesha-box {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 25px auto;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.section,
+.card,
+.couple-section {
+  position: relative;
+  z-index: 1;
+}
+/* Rotating border */
+.ganesha-box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 60%;
+  background: conic-gradient(
+    #ff9800,
+    #ff5722,
+    #ff9800,
+    transparent 60%
+  );
+  animation: rotateBorder 3s linear infinite;
+  z-index: -1;
+}
+
+/* Inner layer */
+.ganesha-box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #ffffff;
+  border-radius: 0%;
+  z-index: -1;
+}
+.map-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #2f6f67;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.map-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Ganesha image */
+.ganesha {
+  width: 65px;
+}
+
+/* Animation */
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== ENVELOPE (UNCHANGED) ===== */
+.envelope {
+  width: 100%;
+  height: 100vh;
+  background: url('dg.png') center/cover no-repeat;
+  position: relative;
+}
+.calendar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 14px 24px;
+  background: #000;
+  color: #fff;
+
+  border-radius: 30px;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+
+.calendar-btn:hover {
+  transform: scale(1.05);
+}
+/* ❤️ HEART CLICK AREA */
+.click-area {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.08);
+
+  /* 🔥 adjust position to match seal */
+  margin-top: -70px;
+
+  animation: heartPulse 1.5s infinite;
+}
+
+/* heart shape */
+.click-area::before,
+.click-area::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+
+.click-area::before {
+  top: -60px;
+  left: 0;
+}
+
+.click-area::after {
+  left: 60px;
+  top: 0;
+}
+
+/* animation */
+@keyframes heartPulse {
+  0% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  }
+}
+
+/* 🔥 PULSING RING */
+.click-area::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  border: 2px solid rgba(255,255,255,0.7);
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
+
+  animation: pulseRing 1.8s infinite;
+}
+
+/* ANIMATION */
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* TAP FEEDBACK */
+.click-area:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* TEXT */
+.bottom-text {
+  position: absolute;
+  top: 68%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #fdf6e3;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+}
+
+/* ===== ANIMATION ===== */
+.fade-out {
+  animation: fadeZoom 1s forwards;
+}
+
+@keyframes fadeZoom {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.15); }
+}
+
+/* ===== CONTENT PAGE ===== */
+.content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow-y: auto;
+  animation: fadeIn 1s;
+
+  background: transparent;
+  z-index: 1;
+}
+.countdown {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #2f6f67;
+  font-weight: 500;
+}
+
+/* 🌿 FIXED SMOOTH BACKGROUND */
+.content::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url('leaf.png') center/cover no-repeat;
+
+  opacity: 0.79;
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== SECTION ===== */
+.section {
+  text-align: center;
+  padding: 40px 10px 15px;
+}
+
+/* RIGHT CONTENT */
+.timeline-content {
+  flex: 1;
+}
+
+/* ===== GANESHA TEXT ===== */
+.ganesha-text {
+  margin-top: 12px;
+  font-size: 13px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  color: #2f6f67;
+  letter-spacing: 1px;
+}
+.event-time {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #2f6f67;
+  line-height: 1.5;
+}
+
+/* ===== NAMES (UPDATED) ===== */
+.names {
+  font-family: 'Allura', cursive;
+  font-size: 3.6rem;
+  color: #2f6f67;
+  margin: 5px 0;
+  line-height: 1.1;
+}
+.with-text {
+  font-family: 'Allura', cursive;
+  font-size: 2.8rem;
+  color: #2f6f67;
+  margin: 5px 0;
+}
+/* 🔥 IMAGE SLIDER CSS */
+.slider {
+  overflow: hidden;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.slide-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.slide-track img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 12px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* SMALL TEXT */
+.section p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* DATE */
+.date {
+  color: #1f6f6f;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.invite-text {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* 🔥 NEW STYLE (same as names) */
+.styled-text {
+  font-family: 'Allura', cursive !important;
+  font-size: 1.2rem !important;
+  line-height: 1;
+  font-weight: normal;
+  color: #000;
+  text-shadow:
+    0 0 8px rgba(47,111,103,0.25),
+    0 0 16px rgba(47,111,103,0.15),
+    0 2px 4px rgba(47,0,0,0.08);
+}
+
+.card {
+  position: relative;
+
+  width: calc(100% - 20px);
+  margin: 8px auto;
+
+  padding: 18px 15px;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(47,111,103,0.15);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  backdrop-filter: blur(6px);
+
+  box-sizing: border-box;
+}
+.card + .card {
+  margin-top: 4px;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url('leaf.png') center/cover no-repeat;
+  opacity: 0.15;
+
+  z-index: 0;
+}
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+/* ===== COUPLE IMAGE ===== */
+.couple-section {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.couple-img {
+  width: 85%;
+  max-width: 320px;
+  border-radius: 30px;
+}
+.wish-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+/* WISHES SCROLL */
+.wish-container {
+  display: flex;
+  gap: 15px;
+  padding: 20px 0;
+  width: max-content;
+  animation: wishScroll 50s linear infinite;
+}
+
+.wish-card {
+  min-width: 260px;
+  max-width: 260px;
+  height: 150px;
+
+  background: #fff;
+  padding: 15px;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.wish-card strong {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.wish-card p {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes wishScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* TEXT BELOW IMAGE */
+.invite-text {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+/* ✅ REMOVE BLUE TAP HIGHLIGHT */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optional: smoother tap feel */
+.click-area {
+  outline: none;
+}
+
+.click-area:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+/* ===== COMBINED EVENT CARD ===== */
+.card.event-card {
+  padding: 18px 12px 18px;
+  border: 1.5px solid rgba(201,162,74,0.65);
+  box-shadow: 0 8px 24px rgba(47,111,103,0.18);
+}
+.event-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+.event-panel {
+  position: relative;
+  flex: 1;
+  padding: 18px 6px 16px;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid rgba(201,162,74,0.5);
+  background: linear-gradient(160deg, rgba(47,111,103,0.12), rgba(201,162,74,0.16));
+}
+.event-title {
+  font-family: 'Allura', cursive;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #2f6f67;
+}
+.event-day {
+  margin-top: 4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #b98524;
+  background: linear-gradient(180deg, #e6c25a, #a8741b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.event-month {
+  margin: 6px 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #2f6f67;
+}
+.event-clock {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #2f6f67;
+  text-align: left;
+}
+.event-clock svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  fill: none;
+  stroke: #2f6f67;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ===== VENUE BANNER ===== */
+.venue-banner {
+  position: relative;
+  margin-top: 20px;
+  padding: 22px 14px 22px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  background: radial-gradient(circle at 50% 0%, #3f8a7f 0%, #2f6f67 45%, #1d4f48 100%);
+  border: 1.5px solid #d4a937;
+  box-shadow: 0 10px 22px rgba(29,79,72,0.4);
+}
+.venue-banner::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(230,194,90,0.6);
+  border-radius: 15px;
+  pointer-events: none;
+}
+.venue-pin {
+  width: 34px;
+  height: 34px;
+  fill: #f2d27a;
+  stroke: #f2d27a;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.35));
+  animation: pinBounce 1.6s ease-in-out infinite;
+}
+@keyframes pinBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.venue-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #f2d27a;
+}
+.venue-label::before,
+.venue-label::after {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e6c25a);
+}
+.venue-label::after {
+  transform: scaleX(-1);
+}
+.venue-name {
+  margin: 6px 0 4px;
+  font-family: 'Allura', cursive;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4), 0 0 18px rgba(242,210,122,0.35);
+}
+.venue-addr {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e6f2ef;
+}
+.venue-banner .map-btn {
+  margin-top: 16px;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a1d00;
+  background: linear-gradient(135deg, #f6d77a, #c9962b);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  animation: btnGlow 2s ease-in-out infinite;
+}
+@keyframes btnGlow {
+  0%, 100% { box-shadow: 0 4px 14px rgba(0,0,0,0.35), 0 0 0 0 rgba(246,215,122,0.5); }
+  50% { box-shadow: 0 4px 14px rgba(0,0,0,0.35), 0 0 0 8px rgba(246,215,122,0); }
+}
+</style>
+</head>
+<body>
+<!-- 🎵 MUSIC: replace the mp3 file (keep the same name or update it here) -->
+<audio id="music" loop playsinline>
+  <source src="AUD-20260409-WA0006.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ENVELOPE (background image: dg.png) -->
+<div class="envelope" id="env">
+  <div class="click-area" onclick="openInvite()"></div>
+</div>
+
+<!-- WEDDING PAGE -->
+<div class="content" id="content">
+
+<div class="section">
+<div class="ganesha-box">
+  <img src="ganesha.png.jpeg" class="ganesha">
+</div>
+
+<h3 class="ganesha-text">||Shree Ganeshaya Namaha||</h3>
+
+<div class="names">Usha H U</div>
+<p>D/o Smt. Shanta & Late Sri. Umapathi</p>
+
+<p class="with-text">With</p>
+
+<div class="names">Manjunath V P</div>
+<p>S/o Smt. Sundramma & Sri. Puttaraju, Hassan</p>
+
+<div class="date">
+  Sunday, 22nd Nov 2026
+</div>
+
+<!-- 🔥 IMAGE SLIDER START (replace img1.jpg to img5.jpg with your photos) -->
+<div class="slider">
+  <div class="slide-track">
+    <img src="img5.jpg" />
+    <img src="img2.jpg" />
+    <img src="img3.jpg" />
+    <img src="img1.jpg" />
+
+    <!-- Duplicate for smooth loop -->
+    <img src="img5.jpg" />
+    <img src="img2.jpg" />
+    <img src="img3.jpg" />
+    <img src="img1.jpg" />
+  </div>
+</div>
+
+<!-- 💑 COUPLE IMAGE SECTION (tg.png) -->
+<div class="couple-section">
+  <img src="tg.png" class="couple-img">
+  <p class="invite-text styled-text">
+    To my dear ones,<br>
+    Life has given me many beautiful moments, but some of the<br>
+    best memories have been the one shared with you.<br>
+    As I begin a new and important chapter of my life,<br>
+    it would mean a lot to have you by my side<br>
+    on this special occasion.
+  </p>
+  <div id="countdown" class="countdown"></div>
+</div>
+
+<div class="card event-card">
+  <div class="event-row">
+
+    <div class="event-panel">
+      <div class="event-title">Reception</div>
+      <div class="event-day">21</div>
+      <div class="event-month">Nov &middot; 2026</div>
+      <div class="event-clock"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>7:00 PM Onwards</span></div>
+    </div>
+
+    <div class="event-panel">
+      <div class="event-title">Wedding</div>
+      <div class="event-day">22</div>
+      <div class="event-month">Nov &middot; 2026</div>
+      <div class="event-clock"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Muhurtham Time<br>9:00 &ndash; 9:50 AM</span></div>
+    </div>
+
+  </div>
+
+  <div class="venue-banner">
+    <svg class="venue-pin" viewBox="0 0 24 24"><path d="M12 22s-7.5-6.6-7.5-12a7.5 7.5 0 0 1 15 0c0 5.4-7.5 12-7.5 12z"/><circle cx="12" cy="10" r="2.8" fill="#1d4f48"/></svg>
+    <div class="venue-label">Venue</div>
+    <div class="venue-name">S S Mini hall</div>
+    <div class="venue-addr">Tharalabhalu sabhabhavana Hadadi road,<br>near ITI college, Davanagere</div>
+    <a href="https://maps.app.goo.gl/C4ULdPoPhupRGcwa8"
+       target="_blank"
+       class="map-btn">
+       📍 View Location
+    </a>
+  </div>
+</div>
+
+</div>
+
+<!-- 💬 SEND WISH BUTTON -->
+<div style="text-align:center; margin:10px 0;">
+  <button onclick="openWishPopup()"
+    style="
+      background:#000;
+      color:#fff;
+      border:none;
+      padding:14px 28px;
+      border-radius:35px;
+      font-size:18px;
+      cursor:pointer;
+    ">
+    Send Your Wishes 🤍
+  </button>
+</div>
+
+<!-- 💌 POPUP -->
+<div id="wishPopup"
+  style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+  ">
+
+  <div style="
+      background:#fff;
+      width:85%;
+      max-width:400px;
+      border-radius:25px;
+      padding:25px;
+      text-align:center;
+    ">
+
+    <h2>Send your wishes 🤍</h2>
+
+    <input type="text"
+      id="wishName"
+      placeholder="Your Name"
+      style="
+        width:90%;
+        padding:12px;
+        margin-top:15px;
+        border-radius:12px;
+        border:1px solid #ddd;
+      ">
+
+    <textarea
+      id="wishMessage"
+      placeholder="Type your wishes..."
+      rows="5"
+      style="
+        width:90%;
+        padding:12px;
+        margin-top:15px;
+        border-radius:12px;
+        border:1px solid #ddd;
+      "></textarea>
+
+    <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
+
+      <button
+        onclick="closeWishPopup()"
+        style="
+          padding:10px 20px;
+          border:none;
+          border-radius:20px;
+          background:#ddd;
+        ">
+        Close
+      </button>
+
+      <button
+        id="sendBtn"
+        onclick="sendWish()"
+        style="
+          padding:10px 20px;
+          border:none;
+          border-radius:20px;
+          background:#000;
+          color:#fff;
+          cursor:pointer;
+        ">
+        Send 🤍
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="wish-wrapper">
+  <div class="wish-container"
+    id="wishContainer"></div>
+</div>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:12px;
+margin:10px 0 90px 0;
+flex-wrap:wrap;
+">
+
+<!-- 📅 wedding.ics: replace with your own calendar file -->
+<a href="wedding.ics" class="calendar-btn">
+📅 Add to Calendar
+</a>
+
+
+</div>
+
+<!-- FOOTER (designer credit: remove or change as agreed with the designer) -->
+<div style="
+text-align:center;
+padding:20px 10px 40px;
+font-size:13px;
+color:#777;
+">
+
+  ✨ Designed By
+  <strong style="color:#2f6f67;">
+    Hithesh Thimmaiah
+  </strong>
+
+  <a href="https://www.instagram.com/hithesh_thimmaiah?obrf=cWJmaXF6em9qZm83&utm_source=qr"
+     target="_blank"
+     style="
+       text-decoration:none;
+       margin-left:8px;
+       font-size:20px;
+     ">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="url(#igGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;">
+      <defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f09433"/><stop offset="0.5" stop-color="#dc2743"/><stop offset="1" stop-color="#bc1888"/></linearGradient></defs>
+      <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="url(#igGrad)" stroke="none"/>
+    </svg>
+  </a>
+
+</div>
+
+</div>
+
+<script>
+function openInvite() {
+  let env = document.getElementById("env");
+
+  try {
+    let music = document.getElementById("music");
+    if (music) {
+      music.volume = 0.3;
+      music.play();
+    }
+  } catch (e) {}
+
+  env.classList.add("fade-out");
+
+  setTimeout(() => {
+    env.style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }, 900);
+}
+</script>
+
+<script>
+function openWishPopup() {
+  document.getElementById("wishPopup").style.display = "flex";
+}
+
+function closeWishPopup() {
+  document.getElementById("wishPopup").style.display = "none";
+}
+</script>
+
+<script>
+/* CHANGE: wedding date and time */
+const weddingDate = new Date("November 22, 2026 09:00:00").getTime();
+
+function updateCountdown() {
+
+  const countdown = document.getElementById("countdown");
+
+  if (!countdown) return;
+
+  const now = new Date().getTime();
+
+  const diff = weddingDate - now;
+
+  if (diff < 0) {
+    countdown.innerHTML = "🎉 It's Wedding Time!";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+  const hours = Math.floor(
+    (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+
+  const minutes = Math.floor(
+    (diff % (1000 * 60 * 60)) / (1000 * 60)
+  );
+
+  countdown.innerHTML =
+    `⏳ ${days} Days ${hours} Hours ${minutes} Minutes`;
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+</script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  where,
+  orderBy,
+  limit
+}
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+/* Firebase project config */
+const firebaseConfig = {
+  apiKey: "AIzaSyCaHdj-5txuGEpnep3xEAEjaoKftp9tGIs",
+  authDomain: "usha-manjunath-wedding.firebaseapp.com",
+  projectId: "usha-manjunath-wedding",
+  storageBucket: "usha-manjunath-wedding.firebasestorage.app",
+  messagingSenderId: "525468394350",
+  appId: "1:525468394350:web:cabad2c54e00fb75ab977f"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+window.sendWish = async function () {
+  const btn = document.getElementById("sendBtn");
+  if (localStorage.getItem("wishSent")) {
+    alert("You already sent your wishes 🤍");
+    return;
+  }
+  const name = document.getElementById("wishName").value.trim();
+  const message = document.getElementById("wishMessage").value.trim();
+
+  if (!name || !message) {
+    alert("Please enter name and wishes");
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = "⏳ Sending...";
+  btn.style.opacity = "0.7";
+
+  try {
+    await addDoc(collection(db, "wishes"), {
+      eventId: "Groom-Bride",
+      name: name.slice(0, 50),
+      message: message.slice(0, 300),
+      time: Date.now()
+    });
+  } catch (e) {
+    console.error(e);
+    alert("Could not send your wish. Please try again.");
+    btn.disabled = false;
+    btn.innerHTML = "Send 🤍";
+    btn.style.opacity = "1";
+    return;
+  }
+
+  document.getElementById("wishName").value = "";
+  document.getElementById("wishMessage").value = "";
+  localStorage.setItem("wishSent", "true");
+  btn.innerHTML = "✓ Sent";
+  btn.style.background = "#28a745";
+  closeWishPopup();
+  alert("Wish sent successfully 🤍");
+};
+/* COUPLE ID */
+const eventId = "Groom-Bride";
+
+/* SHOW WISHES */
+const q = query(
+  collection(db, "wishes"),
+  orderBy("time", "desc"),
+  limit(21)
+);
+
+/* Escape text so wishes can't inject HTML */
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+onSnapshot(q, (snapshot) => {
+  let container = document.getElementById("wishContainer");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  let wishesHTML = "";
+
+  snapshot.forEach(doc => {
+    let data = doc.data();
+
+    wishesHTML += `
+      <div class="wish-card">
+        <strong>${esc(data.name)}</strong>
+        <p>${esc(data.message)}</p>
+      </div>
+    `;
+  });
+
+  /* Duplicate cards for seamless scrolling */
+  container.innerHTML = wishesHTML + wishesHTML + wishesHTML;
+});
+
+</script>
+</body>
+</html>

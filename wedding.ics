@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Usha and Manjunath Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:reception-20261121@usha-manjunath-wedding
+DTSTAMP:20261017T000000Z
+DTSTART:20261121T133000Z
+DTEND:20261121T163000Z
+SUMMARY:Usha & Manjunath - Reception
+DESCRIPTION:Reception of Usha H U and Manjunath V P. 7:00 PM onwards.
+LOCATION:S S Mini hall\, Tharalabhalu sabhabhavana\, Hadadi road\, near ITI college\, Davanagere
+URL:https://maps.app.goo.gl/C4ULdPoPhupRGcwa8
+END:VEVENT
+BEGIN:VEVENT
+UID:wedding-20261122@usha-manjunath-wedding
+DTSTAMP:20261017T000000Z
+DTSTART:20261122T033000Z
+DTEND:20261122T042000Z
+SUMMARY:Usha & Manjunath - Wedding
+DESCRIPTION:Wedding of Usha H U and Manjunath V P. Muhurtham 9:00 AM to 9:50 AM.
+LOCATION:S S Mini hall\, Tharalabhalu sabhabhavana\, Hadadi road\, near ITI college\, Davanagere
+URL:https://maps.app.goo.gl/C4ULdPoPhupRGcwa8
+END:VEVENT
+END:VCALENDAR
