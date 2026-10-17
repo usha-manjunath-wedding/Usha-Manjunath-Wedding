@@ -418,15 +418,15 @@ body {
   overflow: hidden;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;   /* UPDATED: was center */
 }
 /* WISHES SCROLL */
 .wish-container {
   display: flex;
   gap: 15px;
-  padding: 20px 0;
+  padding: 20px 15px 20px 0;     /* UPDATED: right padding makes the loop seamless */
   width: max-content;
-  animation: wishScroll 50s linear infinite;
+  animation: wishScroll 50s linear infinite; /* duration is set by JS (constant speed) */
 }
 
 .wish-card {
@@ -672,7 +672,7 @@ body {
 <h3 class="ganesha-text">||Shree Ganeshaya Namaha||</h3>
 
 <div class="names">Usha H U</div>
-<p>D/o Smt. Shantha & Late Sri. Umapathi</p>
+<p>D/o Smt. Shanta & Late Sri. Umapathi</p>
 
 <p class="with-text">With</p>
 
@@ -1045,17 +1045,15 @@ const q = query(
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 onSnapshot(q, (snapshot) => {
-  let container = document.getElementById("wishContainer");
+  const container = document.getElementById("wishContainer");
   if (!container) return;
 
-  container.innerHTML = "";
-
-  let wishesHTML = "";
+  let set = "";
 
   snapshot.forEach(doc => {
-    let data = doc.data();
+    const data = doc.data();
 
-    wishesHTML += `
+    set += `
       <div class="wish-card">
         <strong>${esc(data.name)}</strong>
         <p>${esc(data.message)}</p>
@@ -1063,8 +1061,23 @@ onSnapshot(q, (snapshot) => {
     `;
   });
 
-  /* Duplicate cards for seamless scrolling */
-  container.innerHTML = wishesHTML + wishesHTML + wishesHTML;
+  if (!set) {
+    container.innerHTML = "";
+    return;
+  }
+
+  /* Repeat the set until one half is wider than the screen,
+     then use two identical halves so the loop is seamless */
+  const cardW = 305;                         /* 290px card (260 + 2x15 padding) + 15px gap */
+  const count = snapshot.size;
+  const repeats = Math.max(1, Math.ceil(window.innerWidth / (cardW * count)));
+  const half = set.repeat(repeats);
+  container.innerHTML = half + half;
+
+  /* Same scroll speed no matter how many wishes: pixels per second.
+     30 is about 65% faster than before. Raise it to go faster. */
+  const speed = 30;
+  container.style.animationDuration = (cardW * count * repeats / speed) + "s";
 });
 
 </script>
