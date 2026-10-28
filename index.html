@@ -119,90 +119,96 @@ body {
 .calendar-btn:hover {
   transform: scale(1.05);
 }
-/* ❤️ HEART CLICK AREA */
-.click-area {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-
-  width: 100px;
-  height: 100px;
+/* ===== WAX SEAL "TAP TO OPEN" ===== */
+.envelope{
+  /* size of the background image after "cover" scaling (image is 2:3) */
+  --iw: max(100vw, calc(100vh / 1.5));
+  --ih: max(calc(100vw * 1.5), 100vh);
+  /* wax seal centre + diameter inside that image */
+  --sx: calc((100vw - var(--iw)) / 2 + var(--iw) * 0.504);
+  --sy: calc((100vh - var(--ih)) / 2 + var(--ih) * 0.348);
+  --sd: calc(var(--iw) * 0.43);
   cursor: pointer;
-
-  background: rgba(255,255,255,0.08);
-
-  /* 🔥 adjust position to match seal */
-  margin-top: -70px;
-
-  animation: heartPulse 1.5s infinite;
+  overflow: hidden;
 }
-
-/* heart shape */
-.click-area::before,
-.click-area::after {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 50%;
+.seal-hit{
+  position:absolute; left:var(--sx); top:var(--sy);
+  width:var(--sd); height:var(--sd);
+  transform:translate(-50%,-50%);
+  border:0; padding:0; background:transparent; border-radius:50%;
+  cursor:pointer; outline:none;
+  animation: sealBreath 2.2s ease-in-out infinite;
 }
-
-.click-area::before {
-  top: -60px;
-  left: 0;
+.seal-hit:active{ transform:translate(-50%,-50%) scale(.94); animation:none; }
+@keyframes sealBreath{
+  0%,100%{ transform:translate(-50%,-50%) scale(1);   filter:drop-shadow(0 0 0 rgba(201,162,74,0)); }
+  50%    { transform:translate(-50%,-50%) scale(1.05); filter:drop-shadow(0 0 18px rgba(201,162,74,.75)); }
 }
-
-.click-area::after {
-  left: 60px;
-  top: 0;
+/* ripple rings spreading out from the seal */
+.seal-hit .ring{
+  position:absolute; inset:0; border-radius:50%;
+  border:2px solid rgba(201,162,74,.95);
+  box-shadow:0 0 14px rgba(255,255,255,.7);
+  opacity:0; animation: sealRing 2.4s ease-out infinite;
+  pointer-events:none;
 }
-
-/* animation */
-@keyframes heartPulse {
-  0% {
-    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(-45deg) scale(1.1);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(-45deg) scale(1);
-  }
+.seal-hit .ring:nth-child(2){ animation-delay:.8s; }
+.seal-hit .ring:nth-child(3){ animation-delay:1.6s; }
+@keyframes sealRing{
+  0%  { transform:scale(.95); opacity:.9; }
+  100%{ transform:scale(1.75); opacity:0; }
 }
-
-/* 🔥 PULSING RING */
-.click-area::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-
-  border: 2px solid rgba(255,255,255,0.7);
-  box-shadow: 0 0 25px rgba(255,255,255,0.4);
-
-  animation: pulseRing 1.8s infinite;
+/* light shine sweeping across the seal */
+.seal-hit .shine{
+  position:absolute; inset:0; border-radius:50%; overflow:hidden; pointer-events:none;
 }
-
-/* ANIMATION */
-@keyframes pulseRing {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1.4);
-    opacity: 0;
-  }
+.seal-hit .shine::after{
+  content:""; position:absolute; top:-10%; bottom:-10%; width:35%; left:-50%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);
+  transform:skewX(-20deg);
+  animation: sealShine 3s ease-in-out infinite;
 }
-
-/* TAP FEEDBACK */
-.click-area:active {
-  transform: translate(-50%, -50%) scale(0.95);
+@keyframes sealShine{
+  0%,55%{ left:-50%; }
+  100%  { left:130%; }
+}
+/* tapping finger */
+.seal-hit .finger{
+  position:absolute; left:58%; top:62%;
+  width:calc(var(--sd) * 0.30); height:auto;
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,.35));
+  transform-origin:30% 10%;
+  animation: fingerTap 1.6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes fingerTap{
+  0%,100%{ transform:translate(10px,14px) scale(1); }
+  35%    { transform:translate(0,0) scale(.88); }
+  50%    { transform:translate(0,0) scale(.82); }
+  70%    { transform:translate(10px,14px) scale(1); }
+}
+/* "Tap to open" pill */
+.open-hint{
+  position:absolute; left:50%;
+  top:calc((100vh - var(--ih)) / 2 + var(--ih) * 0.72);
+  transform:translateX(-50%);
+  display:flex; align-items:center; gap:10px;
+  padding:12px 24px; border-radius:40px; white-space:nowrap;
+  background:linear-gradient(135deg,#8fae8b,#6f9a7a);
+  color:#fff; font-family:'Poppins',sans-serif; font-weight:500;
+  font-size:14px; letter-spacing:1.5px; text-transform:uppercase;
+  border:1.5px solid rgba(255,255,255,.7);
+  box-shadow:0 6px 18px rgba(80,120,90,.35);
+  animation: hintGlow 1.8s ease-in-out infinite;
+  pointer-events:none;
+}
+.open-hint svg{ width:18px; height:18px; flex:none; }
+@keyframes hintGlow{
+  0%,100%{ box-shadow:0 6px 18px rgba(80,120,90,.35), 0 0 0 0 rgba(143,174,139,.6); transform:translateX(-50%) translateY(0); }
+  50%    { box-shadow:0 10px 24px rgba(80,120,90,.45), 0 0 0 12px rgba(143,174,139,0); transform:translateX(-50%) translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce){
+  .seal-hit,.seal-hit *,.open-hint{ animation-duration:6s; }
 }
 
 /* TEXT */
@@ -489,14 +495,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Optional: smoother tap feel */
-.click-area {
-  outline: none;
-}
 
-.click-area:active {
-  transform: translate(-50%, -50%) scale(0.95);
-}
 /* ===== COMBINED EVENT CARD ===== */
 .card.event-card {
   padding: 18px 12px 18px;
@@ -657,8 +656,18 @@ body {
 </audio>
 
 <!-- ENVELOPE (background image: dg.png) -->
-<div class="envelope" id="env">
-  <div class="click-area" onclick="openInvite()"></div>
+<div class="envelope" id="env" onclick="openInvite()">
+  <button class="seal-hit" aria-label="Tap to open invitation">
+    <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+    <span class="shine"></span>
+    <svg class="finger" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M26 6c-3 0-5 2-5 5v21l-4-4c-2-2-5-2-7 0s-2 5 0 7l14 16c3 4 7 6 12 6h4c8 0 14-6 14-14V32c0-3-2-5-5-5-1 0-2 0-3 1-1-2-3-3-5-3-1 0-2 0-3 1-1-2-3-3-5-3V11c0-3-2-5-5-5z" fill="#fff" stroke="#c9a24a" stroke-width="2.5" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="open-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+    Tap the seal to open
+  </div>
 </div>
 
 <!-- WEDDING PAGE -->
@@ -672,7 +681,7 @@ body {
 <h3 class="ganesha-text">||Shree Ganeshaya Namaha||</h3>
 
 <div class="names">Usha H U</div>
-<p>D/o Smt. Shanta & Late Sri. Umapathi</p>
+<p>D/o Smt. Shantha & Late Sri. Umapathi</p>
 
 <p class="with-text">With</p>
 
